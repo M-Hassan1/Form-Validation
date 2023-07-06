@@ -5,7 +5,7 @@ const Login = () => {
 return(
     <div className="flex justify-center h-screen w-full items-center">
         <form className="w-[28em] bg-slate-200 h-[33em] relative rounded-md shadow-md flex flex-col items-center justify-around ">
-            <h1 className="text-3xl text-pink-400 " >
+            <h1 className="text-3xl font-sans text-pink-400 " >
                 Login Page
                 </h1>
             <input className="w-[72%] h-[2em] border-b outline-none border-black text-xl bg-transparent" type="text" placeholder="UserName" />
