@@ -125,7 +125,7 @@ const Login = () => {
     }
   });
 
-  const clientId = "user client id"; // Replace with your actual client ID
+  const clientId = "868953276567-nrshalq5pd2bqdjng3r64c9htr5dp7u1.apps.googleusercontent.com"; // Replace with your actual client ID
 
   const handleGoogleLoginSuccess = (credentialResponse: any) => {
     console.log("Google login success:", credentialResponse);
