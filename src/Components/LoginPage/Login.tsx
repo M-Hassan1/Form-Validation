@@ -138,10 +138,10 @@ const Login = () => {
     console.log("Google login failed");
   };
 
-  if (loggedIn) {
+  if (submitted) {
     return (
       <div>
-        <SignUp />
+        dfgjfklgh
 
       </div>
     );
