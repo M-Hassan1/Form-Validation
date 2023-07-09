@@ -178,8 +178,7 @@ const Login = () => {
     }
   });
 
-  const clientId = "Next_GooGle_Cloud_CLIENt_ID"; 
-
+  const clientId = process.env.Next_GooGle_Cloud_CLIENt_ID?.toString(); 
 
 
   
@@ -265,7 +264,7 @@ const Login = () => {
           <p className="mt-4">Login With</p>
           <div className="w-[80%] h-[3em] flex justify-around">
             {/* Google Setting */}
-            <GoogleOAuthProvider clientId={clientId}>
+            <GoogleOAuthProvider clientId={clientId!}>
               <GoogleLogin
                 onSuccess={handleGoogleLoginSuccess}
                 onError={handleGoogleLoginError}
