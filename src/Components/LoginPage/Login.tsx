@@ -197,7 +197,7 @@ const Login = () => {
 
   useEffect(() => {
     if (submitted || loggedIn) {
-      const delay = 2000; // 2 seconds delay
+      const delay = 1500; 
       const timeout = setTimeout(() => {
         setShowSignUp(true);
       }, delay);
