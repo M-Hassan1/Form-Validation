@@ -6,8 +6,7 @@ import { formSchema } from "./Validation";
 import jwtDecode from 'jwt-decode';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { BiSolidHide, BiShow } from 'react-icons/bi';
-import Signup from '../SignUpPage/SignUp';
-
+import Registration from '../SignUpPage/Registration';
 
 // Define Type
 interface InitialValues {
@@ -25,7 +24,8 @@ const initialValues: InitialValues = {
 
 const Login = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false); // New state for tracking login status
+  const [loggedIn, setLoggedIn] = useState(false);
+  
   const { values, errors, handleBlur, handleChange, touched,    handleSubmit } = useFormik({
     initialValues: initialValues,
     validationSchema: formSchema,
@@ -33,10 +33,10 @@ const Login = () => {
       console.log("values", values , action);
       action.resetForm();
       setSubmitted(true);
-      setShowSuccess(true);
-      window?.setTimeout(() =>{
-        setShowSuccess(false);
-      },4000)
+      // setShowSuccess(true);
+      // window?.setTimeout(() =>{
+      //   setSubmitted(false);
+      // },4000)
     }
   });
 
@@ -54,21 +54,21 @@ const Login = () => {
     console.log("Google login failed");
   };
 
-  const [showSuccess, setShowSuccess] = useState(false);
+  // const [showSuccess, setShowSuccess] = useState(false);
    
-  if (showSuccess) {
-    
-     return(
+
+  if (submitted) {  
+    return(
       <div>
-          <Signup />
+        <Registration />
       </div>
-     )
+    )
       
-  }
+ }
   return (
     <div className="flex justify-center h-screen w-full items-center">
       {/* Message After Submit Form */}
-        {showSuccess && (
+        {submitted && (
         <p className=" absolute top-0 p-4 text-green-800 bg-gray-300">
           Form submitted successfully!
         </p>
