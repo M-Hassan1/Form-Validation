@@ -25,18 +25,14 @@ const initialValues: InitialValues = {
 const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  
+
   const { values, errors, handleBlur, handleChange, touched,    handleSubmit } = useFormik({
     initialValues: initialValues,
     validationSchema: formSchema,
       onSubmit: (values, action) => {
-      console.log("values", values , action);
+      console.log("values", values);
       action.resetForm();
       setSubmitted(true);
-      // setShowSuccess(true);
-      // window?.setTimeout(() =>{
-      //   setSubmitted(false);
-      // },4000)
     }
   });
 
@@ -54,20 +50,9 @@ const Login = () => {
     console.log("Google login failed");
   };
 
-  // const [showSuccess, setShowSuccess] = useState(false);
-   
 
-  if (submitted) {  
-    return(
-      <div>
-        <Registration />
-      </div>
-    )
-      
- }
   return (
     <div className="flex justify-center h-screen w-full items-center">
-      {/* Message After Submit Form */}
         {submitted && (
         <p className=" absolute top-0 p-4 text-green-800 bg-gray-300">
           Form submitted successfully!

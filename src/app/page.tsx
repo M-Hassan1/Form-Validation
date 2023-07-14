@@ -1,6 +1,6 @@
-import Login from '@/Components/LoginPage/Login'
+// import Login from '@/Components/LoginPage/Login'
 
-// import Registration from "@/Components/SignUpPage/Registration";
+import Registration from "@/Components/SignUpPage/Registration";
 
 
 
@@ -8,8 +8,8 @@ import Login from '@/Components/LoginPage/Login'
 export default function Home() {
   return (
     <div>
-    <Login />
-      {/* <Registration /> */}
+    {/* <Login /> */}
+      <Registration />
     </div>
     )
 }
