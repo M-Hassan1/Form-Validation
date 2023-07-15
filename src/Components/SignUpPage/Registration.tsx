@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { formSchema } from "./SignUpValidaton";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import jwtDecode from 'jwt-decode';
 
 
 import Login from "../LoginPage/Login";
@@ -41,6 +42,30 @@ const Registration = () => {
     
     // const clientId = process.env.Next_Google_Cloud_Client_Id?.toString() || '';
     const clientId = "1024305457771-cqfdoia2covsbqr2771ucvlqrcpah8pu.apps.googleusercontent.com"
+
+
+
+
+
+  
+    const handleGoogleLoginSuccess = (credentialResponse: any) => {
+      console.log("Google login success:", credentialResponse);
+      const details = jwtDecode(credentialResponse.credential);
+      console.log(details);
+    //   setLoggedIn(true); 
+    };
+  
+    const handleGoogleLoginError = () => {
+      console.log("Google login failed");
+    };
+
+
+
+
+
+
+
+
         
     if (submitted) {
         return(
