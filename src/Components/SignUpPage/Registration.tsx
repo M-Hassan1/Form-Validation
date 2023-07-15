@@ -39,9 +39,9 @@ const Registration = () => {
     })
 
     
-    const clientId = process.env.Next_Google_Cloud_Client_Id?.toString() || '';
-
-
+    // const clientId = process.env.Next_Google_Cloud_Client_Id?.toString() || '';
+    const clientId = "221879058841-m2gmqplrvivvl13p0ekkgbbvhtjv6gmb.apps.googleusercontent.com"
+        
     if (submitted) {
         return(
             
