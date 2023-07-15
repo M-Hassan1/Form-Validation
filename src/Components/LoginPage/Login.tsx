@@ -6,7 +6,6 @@ import { formSchema } from "./Validation";
 import jwtDecode from 'jwt-decode';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { BiSolidHide, BiShow } from 'react-icons/bi';
-import Registration from '../SignUpPage/Registration';
 
 // Define Type
 interface InitialValues {
@@ -49,8 +48,6 @@ const Login = () => {
   const handleGoogleLoginError = () => {
     console.log("Google login failed");
   };
-
-
   return (
     <div className="flex justify-center h-screen w-full items-center">
         {submitted && (

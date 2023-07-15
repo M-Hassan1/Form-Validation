@@ -2,6 +2,9 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { formSchema } from "./SignUpValidaton";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+
+
 import Login from "../LoginPage/Login";
 
 
@@ -35,11 +38,15 @@ const Registration = () => {
         }
     })
 
+    
+    const clientId = process.env.Next_Google_Cloud_Client_Id?.toString() || '';
+
+
     if (submitted) {
         return(
-            <div>
+            
                 <Login />
-            </div>
+            
         )
     }
 
@@ -89,12 +96,15 @@ const Registration = () => {
           <p className="mt-4">Login With</p>
           <div className="w-[80%] h-[3em] flex justify-around">
             {/* Google Setting */}
-            {/* <GoogleOAuthProvider clientId={clientId!}>
-              <GoogleLogin
-                onSuccess={handleGoogleLoginSuccess}
-                onError={handleGoogleLoginError}
-              />
-            </GoogleOAuthProvider> */}
+            <GoogleOAuthProvider clientId={clientId}>
+                <GoogleLogin
+                    onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+            }}
+                    onError={() => {
+                    console.log('Login Failed')
+            }}
+            /></GoogleOAuthProvider>
             
           </div>
         </form>
