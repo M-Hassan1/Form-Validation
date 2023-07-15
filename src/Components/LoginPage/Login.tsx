@@ -3,9 +3,9 @@
 import { useState, useRef } from 'react';
 import { useFormik } from 'formik';
 import { formSchema } from "./Validation";
-import jwtDecode from 'jwt-decode';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { BiSolidHide, BiShow } from 'react-icons/bi';
+// import jwtDecode from 'jwt-decode';
+// import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+// import { BiSolidHide, BiShow } from 'react-icons/bi';
 
 // Define Type
 interface InitialValues {
@@ -35,19 +35,19 @@ const Login = () => {
     }
   });
 
-  const clientId = process.env.Next_GooGle_Cloud_CLIENt_ID?.toString(); 
+//   const clientId = process.env.Next_GooGle_Cloud_CLIENt_ID?.toString(); 
 
   
-  const handleGoogleLoginSuccess = (credentialResponse: any) => {
-    console.log("Google login success:", credentialResponse);
-    const details = jwtDecode(credentialResponse.credential);
-    console.log(details);
-    setLoggedIn(true); 
-  };
+//   const handleGoogleLoginSuccess = (credentialResponse: any) => {
+//     console.log("Google login success:", credentialResponse);
+//     const details = jwtDecode(credentialResponse.credential);
+//     console.log(details);
+//     setLoggedIn(true); 
+//   };
 
-  const handleGoogleLoginError = () => {
-    console.log("Google login failed");
-  };
+//   const handleGoogleLoginError = () => {
+//     console.log("Google login failed");
+//   };
   return (
     <div className="flex justify-center h-screen w-full items-center">
         {submitted && (
@@ -75,9 +75,9 @@ const Login = () => {
                 {errors.userPassword && touched.userPassword ? (
                   <p className="text-red-500 -mt-10">{errors.userPassword}</p>
             ) : null}
-                <div className="absolute right-20 top-52 cursor-pointer">
+                {/* <div className="absolute right-20 top-52 cursor-pointer">
                 <BiSolidHide size={21} />
-              </div>
+              </div> */}
 
               <button type="submit" className='w-[30%] text-xl text-white h-[42px] rounded-md   Button bg-blue-500 hover:bg-blue-600 active:bg-blue-800 duration-300' >
                   Login
@@ -85,16 +85,19 @@ const Login = () => {
               
               <p className="mt-4">Login With</p>
               <div className="w-[80%] h-[3em] flex justify-around">
+              <button className="w-[45%] text-xl h-[90%] rounded-md bg-gray-600 hover:bg-gray-800 active:scale-90 duration-300">
+              Facebook
+            </button>
                   {/* Google Setting */}
-                  <GoogleOAuthProvider clientId={clientId!}>
+                  {/* <GoogleOAuthProvider clientId={clientId!}>
                     <GoogleLogin
                       onSuccess={handleGoogleLoginSuccess}
                         onError={handleGoogleLoginError}
                       />
-                  </GoogleOAuthProvider>
-                  {/* <button className="w-[45%] text-xl h-[90%] rounded-md bg-gray-600 hover:bg-gray-800 active:scale-90 duration-300">
+                  </GoogleOAuthProvider> */}
+                  <button className="w-[45%] text-xl h-[90%] rounded-md bg-gray-600 hover:bg-gray-800 active:scale-90 duration-300">
               Facebook
-            </button> */}
+            </button>
           </div>
         </form>
       </div>

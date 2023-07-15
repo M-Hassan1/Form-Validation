@@ -2,8 +2,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { formSchema } from "./SignUpValidaton";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import jwtDecode from 'jwt-decode';
+
 
 
 import Login from "../LoginPage/Login";
@@ -38,34 +37,6 @@ const Registration = () => {
             // },4000)
         }
     })
-
-    
-    // const clientId = process.env.Next_Google_Cloud_Client_Id?.toString() || '';
-    const clientId = "1024305457771-cqfdoia2covsbqr2771ucvlqrcpah8pu.apps.googleusercontent.com"
-
-
-
-
-
-  
-    const handleGoogleLoginSuccess = (credentialResponse: any) => {
-      console.log("Google login success:", credentialResponse);
-      const details = jwtDecode(credentialResponse.credential);
-      console.log(details);
-    //   setLoggedIn(true); 
-    };
-  
-    const handleGoogleLoginError = () => {
-      console.log("Google login failed");
-    };
-
-
-
-
-
-
-
-
         
     if (submitted) {
         return(
@@ -74,8 +45,6 @@ const Registration = () => {
             
         )
     }
-
-
 
   return (
     <div className="flex justify-center h-screen w-full items-center">
@@ -119,17 +88,14 @@ const Registration = () => {
                 </button>
 
           <p className="mt-4">Login With</p>
-          <div className="w-[80%] h-[3em] flex justify-around">
+          <div className="w-[80%] h-[3em] text-lg flex justify-around">
             {/* Google Setting */}
-            <GoogleOAuthProvider clientId={clientId}>
-                <GoogleLogin
-                    onSuccess={credentialResponse => {
-                    console.log(credentialResponse);
-            }}
-                    onError={() => {
-                    console.log('Login Failed')
-            }}
-            /></GoogleOAuthProvider>
+            <button className="w-[45%]  h-[90%] rounded-md bg-white hover:bg-slate-100 active:scale-90 duration-300">
+              Google
+            </button>
+            <button className="w-[45%] h-[90%] rounded-md bg-white hover:bg-slate-100 active:scale-90 duration-300">
+              Facebook
+            </button>
             
           </div>
         </form>
