@@ -2,10 +2,10 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { formSchema } from "./SignUpValidaton";
-
-
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 import Login from "../LoginPage/Login";
+import { auth } from "../../../firebase/firebaseConfig";
 
 
 
@@ -23,6 +23,15 @@ const initialValues = {
 
 const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
+
+  const handleGoogle = async (e :any) => {
+
+
+    const provider = await new GoogleAuthProvider(); 
+      return signInWithPopup(auth, provider)
+  }
+
+
 
     const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
         initialValues:initialValues,
@@ -90,7 +99,7 @@ const Registration = () => {
           <p className="mt-4">Login With</p>
           <div className="w-[80%] h-[3em] text-lg flex justify-around">
             {/* Google Setting */}
-            <button className="w-[45%]  h-[90%] rounded-md bg-white hover:bg-slate-100 active:scale-90 duration-300">
+            <button onClick={handleGoogle} className="w-[45%]  h-[90%] rounded-md bg-white hover:bg-slate-100 active:scale-90 duration-300">
               Google
             </button>
             <button className="w-[45%] h-[90%] rounded-md bg-white hover:bg-slate-100 active:scale-90 duration-300">
