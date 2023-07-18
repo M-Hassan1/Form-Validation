@@ -47,13 +47,9 @@ const Registration = () => {
         }
     })
         
-    if (submitted) {
-        return(
-            
-                <Login />
-            
-        )
-    }
+    // if (submitted) {
+    //     return <Login />
+    // }
 
   return (
     <div className="flex justify-center h-screen w-full items-center">
