@@ -2,7 +2,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { formSchema } from "./SignUpValidaton";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, ProviderId, signInWithPopup } from "firebase/auth";
 
 import Login from "../LoginPage/Login";
 import { auth } from "../../../firebase/firebaseConfig";
@@ -30,6 +30,7 @@ const Registration = () => {
     const provider = await new GoogleAuthProvider(); 
       return signInWithPopup(auth, provider)
   }
+  
 
 
 
